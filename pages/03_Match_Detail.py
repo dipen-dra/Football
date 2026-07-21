@@ -6,7 +6,7 @@ import os
 # Add workspace to path
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
 
-from src.app_helper import init_app
+from src.app_helper import init_app, render_segmented_tabs
 from src.viz import plot_regains_and_shots, plot_pressing_intensity_timeline, CARD_BG, TEXT_COLOR
 from src.ingestion import get_match_events
 
