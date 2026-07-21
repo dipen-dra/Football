@@ -118,9 +118,15 @@ def main():
     st.markdown("---")
     
     # 3. Timeline & Maps
-    tab_timeline, tab_regains = st.tabs(["📈 Pressing Timeline", "🗺️ Regains & Shot Maps"])
+    tab_options = ["timeline", "regains"]
+    tab_labels = {
+        "timeline": "📈 Pressing Timeline",
+        "regains": "🗺️ Regains & Shot Maps"
+    }
+    active_tab = render_segmented_tabs(tab_options, labels=tab_labels, query_param_name="tab")
+    st.markdown("---")
     
-    with tab_timeline:
+    if active_tab == "timeline":
         st.markdown("### 📈 Pressing Intensity Over 90 Minutes")
         st.markdown("Visualizes rolling 5-minute pressure event frequencies to illustrate game momentum and tactical adaptations.")
         fig_timeline = plot_pressing_intensity_timeline(match_events, home_team, away_team)
@@ -128,7 +134,7 @@ def main():
         with col_c:
             st.pyplot(fig_timeline)
         
-    with tab_regains:
+    elif active_tab == "regains":
         st.markdown("### 🗺️ Regains & Resulting Shots Map")
         st.markdown("Select a team to plot where they won the ball back and which regains led to subsequent shots (within 15 seconds).")
         
