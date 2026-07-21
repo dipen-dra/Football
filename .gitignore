@@ -18,9 +18,3 @@ ENV/
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Streamlit config (if temporary)
-.streamlit/
-
-# Large raw data cache (StatsBomb API downloads)
-data/raw/
